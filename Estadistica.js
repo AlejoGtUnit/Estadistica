@@ -29,6 +29,8 @@ function Generar(){
         do {
             limiteAparenteMenor = (datoMenor) + sumaLimites;
             limiteAparenteMayor = (datoMenor + I - 1) + sumaLimites;
+			limiteRealInferior = limiteAparenteMenor - 0.5;
+			limiteRealSuperior = limiteAparenteMayor + 0.5;
             fi = datosSeparados.filter(function (n) { return (n >= self.limiteAparenteMenor && n <= self.limiteAparenteMayor); }).length;
             fr = self.fi / cantidadDatos;
             frPorcentual = self.fr * 100;
@@ -47,7 +49,7 @@ function Generar(){
 
             $("#resultado tbody").append("<tr>");
             $("#resultado tbody").append("<td>" + limiteAparenteMenor.toString() + " - " + limiteAparenteMayor.toString());
-			$("#resultado tbody").append("<td>" + (limiteAparenteMenor - 0.5).toString() + " - " + (limiteAparenteMayor + 0.5).toString());
+			$("#resultado tbody").append("<td>" + limiteRealInferior.toString() + " - " + limiteRealSuperior.toString());
             $("#resultado tbody").append("<td>" + fi.toFixed(0));
             $("#resultado tbody").append("<td>" + fr.toFixed(2));
             $("#resultado tbody").append("<td>" + Math.round(frPorcentual).toString() + " % ");
